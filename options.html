@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+	<!-- <link rel="stylesheet" href="css/normalize.css"> -->
+	<!-- <link rel="stylesheet" href="css/main.css"> -->
+	<!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+	<style>
+		.container {
+			display: flex;
+		}
+
+		.container>div {
+			margin: 0 1em;
+		}
+
+		.form {
+			max-width: 50em;
+		}
+
+		.form textarea {
+			width: 100%;
+			height: 20em;
+			font-size: 3em;
+		}
+
+		.form input {
+			width: 100%;
+			height: 2em;
+			margin: 1em 0;
+		}
+
+		input[type=range] {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Known Chinese</h1>
+	<div class='container'>
+		<div class='form'>
+			<h2>Your vocabulary (<span id='number-of-words'>0</span> words, <span id='number-of-characters'>0</span> characters)</h2>
+			<p>Please put one word per line.</p>
+			<input type="submit" value="Add new characters" id='knownwords-save' />
+			<br />
+			<textarea autofocus=true id='knownwords-textarea'></textarea>
+			<br />
+			<input type="submit" value="Overwrite vocabulary" id='knownwords-overwrite' />
+		</div>
+
+
+		<div class='help'>
+			<h2>Help</h2>
+			<h3>Keyboard shortcuts</h3>
+			<ul>
+				<li>Shift+Alt+R refresh highlights</li>
+				<li>Shift+Alt+T remove highlights</li>
+				<li>Shift+Alt+A add selected word to vocabulary</li>
+				<li>Shift+Alt+D delete selected word from vocabulary</li>
+				<li>Shift+Alt+O open options</li>
+			</ul>
+
+			<h2>Options</h2>
+			<form>
+				Auto-add characters in vocabulary.<br>
+				<input type="checkbox" name="on" id="auto-add-char"> Enable <br>
+			</form>
+
+
+			<h2>Getting started</h2>
+			<div class='form'>
+				<p>To get you easily started, please guess how many characters you know and we will add them to your vocabulary.</p>
+				<p>How many characters do you think you know? <b>I know first <output id="known-slider-label">0 (0%)</output> of the most common characters.</b>					</p>
+				<input type=range min=0 max=8780 step=1 id='known-slider' value=0 />
+				<input type=submit id='known-slider-submit' value="Save to vocabulary" />
+			</div>
+
+			<h2>Characters you should learn next</h2>
+			<h1 id='should-learn'></h1>
+		</div>
+
+	</div>
+	<script src="options.js"></script>
+</body>
+
+</html>
